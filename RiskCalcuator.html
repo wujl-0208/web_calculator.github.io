@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.6, maximum-scale=1.0, user-scalable=no">
+    <script src="js/函数.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <title >乳腺癌风险评估</title>
+    <link rel="stylesheet" href="css/body-style_content.css">
+    <link rel="stylesheet" href="css/选项框样式1.css">
+    <link rel="stylesheet" href="css/card_1.css">
+    <link rel="stylesheet" href="css/计算按钮.css">
+    <link rel="stylesheet" href="css/工具栏_1.css">
+    <link rel="stylesheet" href="css/type1.css">
+    <link rel="stylesheet" href="css/文字样式1.css">
+    <link rel="stylesheet" href="css/input_number.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/button_backtotop.css">
+    <link rel="stylesheet" href="css/words_circle.css">
+    <link rel="stylesheet" href="css/table_display.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <style>
+        .chart-container {
+             position: relative;
+             
+             width: 30%;
+             display: flex;
+             flex-direction: row;
+             margin-top: 30px;
+         }
+        .chart-container canvas {
+             width: 100%;
+             height: auto;
+         }
+        #interface2 {
+            display: none;
+        }
+        #fig1 {
+        position: relative; /* 确保绝对定位的元素相对于这个容器进行定位 */
+        padding-top: 60px; /* 为标题留出空间，避免重叠 */
+    }
+        #fig2 {
+            position: relative; /* 确保绝对定位的元素相对于这个容器进行定位 */
+            padding-top: 60px; /* 为标题留出空间，避免重叠 */
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="card_start" style="font-family: '楷体','楷体_GB2312', 'SimKai';">
+        <h1>绝对风险计算器</h1>
+    </div>
+    <div class="flex items-center gap-2">
+    <button onclick="showInterface1()" style="font-family:'黑体', 'SimHei', sans-serif;font-size: 3.2vh;text-align: center;"
+        class="button1"
+    >
+        <svg
+        class="lucide lucide-newspaper text-blue-400 dark:text-blue-600"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2"
+        stroke="#60A5FA"
+        fill="none"
+        viewBox="0 0 24 24"
+        height="40"
+        width="40"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"
+        ></path>
+        <path d="M18 14h-8"></path>
+        <path d="M15 18h-5"></path>
+        <path d="M10 6h8v4h-8V6Z"></path>
+        </svg>
+          绝对风险计算器
+    </button>
+    <div style="margin: 10px;"></div>
+
+    <button onclick="showInterface2()" style="font-family:'黑体', 'SimHei', sans-serif ;font-size: 3.2vh;text-align: center;"
+        class="button1"
+    >
+        <svg
+        class="lucide lucide-sticky-note text-yellow-400 dark:text-yellow-600"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2"
+        stroke="#FACC14"
+        fill="none"
+        viewBox="0 0 24 24"
+        height="40"
+        width="40"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"
+        ></path>
+        <path d="M15 3v6h6"></path>
+        </svg>
+            绝对风险计算说明
+    </button>
+    </div>
+
+    <div id="interface1">   
+        
+        <div class="loader"></div>
+        <script src="js/加载.js"></script>
+        <!-- <section class="text" style="font-family: '楷体','楷体_GB2312', 'SimKai';">
+            <h1>绝对风险计算器</h1>
+        </section> -->
+        <section class="text" style="margin-top: 50px;">
+            <h2>
+                请您回答以下问题以获得患乳腺癌的绝对风险
+            </h2>
+        </section>
+        <form  onsubmit="calculate(); return false;">
+            <div class="container_age">
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                    1. 您的年龄为（岁）:
+                <input type="number" name="Startage" id="Startage" class="input" min="35" max="85" placeholder="only(35-85)" style="font-size: 1.8vh;"></label>
+            </div>
+
+            <div class="container_Ageflb" >
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                    2. 您第一次生育时的年龄为:</label>
+                <div class="radio-input">
+                    <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                        <input type="radio"  name="Ageflb" value="under20" checked>
+                        20岁之前
+                    </label>
+                    <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                        <input type="radio"  name="Ageflb" value="20-24">
+                        20-24岁
+                    </label>
+                    <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                        <input type="radio"  name="Ageflb" value="25-29或未经产">
+                        25-29或未经产
+                    </label>
+                    <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                        <input type="radio"  name="Ageflb" value="over29">
+                        29岁以上
+                    </label>
+                </div>
+            </div>
+
+            <div class="container_Agemen">  
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                        3. 您第一次月经来潮时的年龄为:</label>       
+                <div class='radio-input'>   
+                    
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Agemen" value="over14" checked>
+                                14岁及之后
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Agemen" value="12-13">
+                            12-13岁之间
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Agemen" value="under12">
+                                12岁之前
+                        </label>
+                </div>    
+            </div>
+
+            <div class="container_Nbiops">  
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                    4. 您的既往乳腺良性活组织检查次数<br>（在过去因乳腺问题而接受过的、并被<br> 病理诊断为良性的活组织检查次数）为:</label>       
+                <div class='radio-input'>   
+                    
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Nbiops" value="0" checked>
+                            0次
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Nbiops" value="1">
+                            1次
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Nbiops" value="over2">
+                            2次及以上
+                        </label>
+                </div>    
+            </div>
+
+            <div class="container_Numrel">  
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                    5. 您患乳腺癌的直系女性亲属<br>（母亲或姐妹）人数:</label>       
+                <div class='radio-input'>   
+                    
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Numrel" value="0" checked>
+                            0人
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Numrel" value="1">
+                            1人
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Numrel" value="over2">
+                            2人及以上
+                        </label>
+                </div>    
+            </div>
+
+            <div class="container_Weight">  
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                    6. 您的体重为（1kg≈2.2磅）:</label>       
+                <div class='radio-input'>   
+                    
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Weight" value="under100" checked>
+                            不高于100磅
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Weight" value="101-125">
+                            101-125磅
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Weight" value="126-150">
+                            126-150磅
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Weight" value="151-175">
+                            151-175磅
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Weight" value="176-200">
+                            176-200磅
+                        </label>
+                        <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.2vh;">
+                            <input type="radio"  name="Weight" value="over200">
+                            超过200磅
+                        </label>
+                </div>    
+            </div>
+
+            <div class="container_Density">  
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                    7. 您的乳腺X线密度为:</label>       
+                <div class='radio-input'>   
+                    
+                        <label style="font-family:Arial, sans-serif ;font-size: 2.2vh;">
+                            <input type="radio"  name="Density" value="0%" checked>
+                            0%
+                        </label>
+                        <label style="font-family:Arial, sans-serif ;font-size: 2.2vh;">
+                            <input type="radio"  name="Density" value="0%-25%">
+                            0%-25%
+                        </label>
+                        <label style="font-family:Arial, sans-serif ;font-size: 2.2vh;">
+                            <input type="radio"  name="Density" value="25%-50%">
+                            25%-50%
+                        </label>
+                        <label style="font-family:Arial, sans-serif ;font-size: 2.2vh;">
+                            <input type="radio"  name="Density" value="50%-75%">
+                            50%-75%
+                        </label>
+                        <label style="font-family:Arial, sans-serif ;font-size: 2.2vh;">
+                            <input type="radio"  name="Density" value="75%-100%">
+                            75%-100%
+                        </label>
+                </div>    
+            </div>
+
+
+            <div class="container_button">
+                <button class="cta" id="calculateButton">
+                <span class="span">计算绝对风险</span>
+                <span class="second">
+                    <svg
+                    width="50px"
+                    height="20px"
+                    viewBox="0 0 66 43"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                    <g
+                        id="arrow"
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                    >
+                        <path
+                        class="one"
+                        d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                        fill="#FFFFFF"
+                        ></path>
+                        <path
+                        class="two"
+                        d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                        fill="#FFFFFF"
+                        ></path>
+                        <path
+                        class="three"
+                        d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                        fill="#FFFFFF"
+                        ></path>
+                    </g>
+                    </svg>
+                </span>
+                </button>
+            </div>
+
+
+
+
+            <div class="container_chart" id="fig1">
+                <p id="title_1_element" style="position: absolute; top: 0; left: 50%;
+                 transform: translateX(-50%); font-size: 40px; color: #0e0e98; font-weight: bold;"></p>
+                <div class="chart-container">
+                    <canvas id="pieChart1"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pieChart3"></canvas>                    
+                </div>
+                <p id="text_1_placeholder" style="display: none;"></p> <!-- 占位符，实际元素会通过JavaScript添加 -->
+                <p id="text_2_placeholder" style="display: none;"></p>
+                <p id="result1" style="display: none;"></p>
+                <p id="explation_1" style="margin-left: 30px;"></p>
+
+            </div>
+
+
+
+            <div class="container_chart" id="fig2">         
+                <p id="title_2_element" style="position: absolute; top: 0; left: 50%;
+                 transform: translateX(-50%); font-size: 40px; color: #0e0e98; font-weight: bold;"></p>    
+                <div class="chart-container">
+                    <canvas id="pieChart2"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pieChart4"></canvas>
+
+                </div>
+                <p id="text_3_placeholder" style="display: none;"></p>
+                <p id="text_4_placeholder" style="display: none;"></p>
+                <p id="result2" style="display: none;"></p>
+                <p id="explation_2" style="margin-left: 30px;"></p>
+            </div><br><br><br><br>
+
+
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="interface2">
+        <h2 style="margin-left: 50px;margin-right: 80px;">关于我们新模型的绝对风险计算器介绍</h2>
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;">目录</p>
+        <ul class="custom-bullets" style="margin-left: 50px;margin-right: 80px;font-size: 20px;">
+            <li><a href="#new-model-section"> 新模型介绍</a></li>
+            <li><a href="#method-section">方法介绍</a> </li>
+            <li><a href="#references-section">参考文献</a> </li>
+        </ul><br><br><br>
+        
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="new-model-section">新模型介绍</p>
+        <p style="margin-left: 50px;margin-right: 80px;">
+            我们所使用的新的乳腺癌绝对风险评估模型是基于Gail模型和Chen等人提出的改进模型而提出的。<br>
+            我们的新模型使用了女性的部分个人信息来估计她们患乳腺癌的绝对风险，模型所使用的个人信息如下所示：</p>
+        <ul class="custom-bullets" style="margin-left: 50px;margin-right: 80px;">
+            <li>本人年龄</li>
+            <li>第一次生育时的年龄</li>
+            <li>第一次月经来潮时的年龄</li>
+            <li>过去因乳腺问题而接受过的、并被病理诊断为良性的活组织检查次数</li>
+            <li>患乳腺癌的直系女性亲属（母亲或姐妹）人数</li>
+            <li>体重</li>
+            <li>乳腺X线密度</li>
+        </ul>
+        <p style="margin-left: 50px;margin-right: 80px;">
+        <br>我们所使用的数据来源于美国乳腺癌检测示范项目\((BCDDP)\)和美国国家癌症研究所的监视、流行病学和最终结果项目\((SEER)\)。
+        其中\(\text{BCDDP}\)项目是一项由美国国家癌症研究所\((NCI)\)和美国癌症协会\((American Cancer Society)\)共同开展的乳腺癌筛查研究，
+        涉及28万名年龄在35岁至74岁之间的白人女性。
+        </p><br><br><br>
+
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="method-section"> 方法介绍 </p>
+        <p style="margin-left: 50px;margin-right: 80px;">为方便后续介绍，首先我们给定一些概念：<br>    
+            <br>初产年龄：女性生育第一个孩子时的年龄<br>
+            <br>初潮年龄：女性第一次月经来潮时的年龄<br>
+            <br>既往良性活检次数：在过去因乳腺问题而接受过的、并被病理诊断为良性的活组织检查次数<br>
+            <br>患乳腺癌的绝对风险：年龄为\(a\)的健康女性在年龄\(a+\tau\)前患乳腺癌的概率<br>
+            <br>非负随机变量\(T_1,T_2\)分别表示患乳腺癌的时间和不患乳腺癌但死于其他原因的时间<br>
+            <br>未患乳腺癌且未死于其他原因的时间被定义为：\(T=\min\{T_1,T_2\}\)<br>
+            <br>t时刻的风险率定义为：\(\lambda(t)=\lim_{\varepsilon\to0^+}\frac{\Pr(T&ltt+\epsilon|T\geq t)}{\epsilon}\)<br>
+            <br>t时刻患乳腺癌的概率为：\(\lambda_1(t)=\lim_{\epsilon\to0^+}\frac{\Pr(T&ltt+\epsilon,\delta(T)=1|T\geq t)}{\epsilon}\)<br>
+            <br>t时刻因除乳腺癌外其他原因死亡的概率为：\(\lambda_2\left(t\right)=\lim_{\epsilon\to0^+}\frac{\Pr(T&ltt+\epsilon,\delta(T)=2|T\geq t)}{\epsilon}\)
+             且\(\lambda(t)=\lambda_1(t)+\lambda_2(t)\)<br>
+            <br>经过推导我们可以得出乳腺癌的绝对风险计算式为：
+            $$\Pr(a&ltT\leq a+\tau,\delta(T)=1\mid T>a)=\int_\alpha^{\alpha+\tau}\lambda_1(t)\exp\left\{-\int_\alpha^t[\lambda_1(u)+\lambda_2(u)]du\right\}dt$$
+            <br>也就是说我们只需要求得\(\lambda_{1}\)和\(\lambda_{2}\)即可。其中\(\lambda_{2}\)可以通过美国国家卫生统计中心提供的除乳腺癌以外的所有病因的死亡率来估算，
+            而\(\lambda_{1}\)通常使用特因风险函数建模$$\lambda_1(t;\mathrm{x})=h_1(t)r(\mathrm{x},z)$$
+            <br>由于BCDDP的数据是缺失数据，尤其是关于我们新增的乳腺X密度这一变量更是只有约50%的相关数据，
+            因此对于相对风险的估计，我们使用了回顾性二阶段数据分析的方法对BCDDP的病例数据进行了建模分析，建立的风险模型如下：
+            $$\Pr(Y=i\mid X=x,Z^c=z,A^c=a)=\frac{\exp[i(\alpha_\alpha+\beta_X^Tx+\beta_Zz)]}{1+\exp(\alpha_\alpha+\beta_X^Tx+\beta_Zz)}$$
+            其中\(Y=1\)表示患癌症，\(Y=0\)表示不患癌症，\(X\)为传统风险因素（初产年龄、初潮年龄、既往良性活检次数、患乳腺癌的姐妹或母亲数量、体重），\(Z^{c}\)为乳腺摄影密度<br>
+            <br>由于乳腺癌的低发病率符合罕见发病率假设，即
+            \(\frac{\Pr(Y=\mathrm{l}\mid\mathrm{X},Z^{c},A)}{\Pr(Y=0\mid\mathrm{X},Z^{c},A)}\approx\Pr(Y=1\mid\mathrm{X},Z^{c},A)\)<br>
+            <br>因此乳腺癌相对风险的估计可以写为：
+            \(r(x,z)=\beta_X^Tx+\beta_Zz\)
+            在此基础上，我们利用回顾性二阶段数据的分析方法获得关联参数
+            \(\beta=(\beta_x^T,\beta_z)^T\)的极大似然估计，
+            最终结果包含六个变量，我们将每个变量划分为不同区间，将所有变量都视为分类变量并用对应的数字指代相应区间。
+            <br>
+        </p>
+        <table class="layout display responsive-table" style="margin-left: 50px;margin-right: 50px;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="organisationnumber">第一次生育时的年龄</td>
+                    <td class="organisationname">20岁之前</td>
+                    <td class="actions">20-24岁</td>
+                    <td>25-29岁或未经产</td> <!-- Placeholder for additional data -->
+                    <td>29岁以上</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="organisationnumber">第一次月经来潮时的年龄</td>
+                    <td class="organisationname">14岁及之后</td>
+                    <td class="actions">12-13岁之间</td>
+                    <td>12岁之前</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="organisationnumber">在过去因乳腺问题而接受过的、<br>并被病理诊断为良性的活组织检查次数</td>
+                    <td class="organisationname">0次</td>
+                    <td class="actions">1次</td>
+                    <td>2次及以上</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="organisationnumber">母亲或姐妹患乳腺癌的人数</td>
+                    <td class="organisationname">0人</td>
+                    <td>1人</td> <!-- Missing <td> tag closed here -->
+                    <td>2人及以上</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="organisationnumber">体重</td>
+                    <td class="organisationname">不超过100磅</td>
+                    <td class="actions">101-125磅</td>
+                    <td>126-150磅</td>
+                    <td>151-175磅</td>
+                    <td>176-200磅</td>
+                    <td>200磅以上</td>
+                </tr>
+                <!-- Add two more rows with placeholder data -->
+                <tr>
+                    <td class="organisationnumber">乳腺X线密度</td> <!-- Example organisation number -->
+                    <td class="organisationname">0%</td>
+                    <td class="actions">0%-25%</td>
+                    <td>25%-50%</td>
+                    <td>50%-75%</td>
+                    <td>75%-100%</td>
+                    <td>-</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p style="margin-left: 50px;margin-right: 80px;">    
+            <br>接下来是关于\(h_1(t)\)的估计，我们利用
+            \(h_1(t)=\frac{h_1^*(t)}{\sum_{\mathbf{x},\mathbf{z}}r(\mathbf{x},z)\Pr(\mathbf{X}=\mathbf{x},Z^c=z\mid A=t)}\)
+            来估计。其中\(h_1^*(t)\)可以从\(\text{SEER}\)中获取数据<br>
+            <br>由于\(\Pr(\mathrm{X},Z^c\mid A)=\Pr(Z^c\mid\mathrm{X},A)\Pr(\mathrm{X}\mid A)=\Pr(Z^c\mid\mathrm{X},A;\theta)\boldsymbol{\pi}_\mathrm{x}^i\)
+            其中\(\pi_x^i:=\Pr(X=x\mid I_t=i)\)，\(\Pr(Z^c\mid X,A;\theta)\)
+            是\(Z^c\)条件分布的参数模型。接下来我们使用具有平均参数和精度参数的β回归模型来对连续密度的条件参数模型进行拟合，最后通过半参数极大似然估计得到连续密度的分布为
+            $$p_\theta(Z=z\mid X,A)=\begin{cases}\rho+(1-\rho)F_\gamma(z_{min}\mid X,A),\mathrm{if~}z=0\\(1-\rho)f_\gamma(Z=z\mid X,A),\mathrm{otherwise}&\end{cases}$$
+            <br>
+            <br>由于我们需要的是分类变量，因此需要对分布进行一定的转化，最后得到密度的条件分布为
+            $$\begin{aligned}&\mathrm{Pr}(Z^{c}=0\mid\mathrm{X},A;\theta)=\rho+(1-\rho)F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\\&\mathrm{Pr}(Z^{c}=1\mid\mathrm{X},A;\theta)=(1-\rho)\left[F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)-F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\right]\\&\mathrm{Pr}(Z^{c}=2\mid\mathrm{X},A;\theta)=(1-\rho)\left[F_{\gamma}\left(\frac{1}{2}\mid\mathrm{X},A\right)-F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)\right]\\&\Pr(Z^c=3\mid\mathrm{X},A;\theta)=(1-\rho)\left[F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)-F_\gamma\left(\frac{1}{2}\mid\mathrm{X},A\right)\right]\\&\Pr(Z^c=4\mid\mathrm{X},A;\theta)=(1-\rho){\left[1-F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)\right]}\end{aligned}$$
+            <br>
+            <br>由此可以计算出\(h_1(t)\)，从而进一步计算绝对风险。<br>
+            <br>由于我们之前的数据都是针对不同年龄组收集的且年龄t是离散的，因此\(\lambda(t)\)在几个年龄区间上是恒定常数。
+            因此最终我们得到的绝对风险计算式为：
+            $$\Pr(a&ltT\leq a+\tau,\delta(T)=1|T>a)=\sum_{i=1}^n\left\{\frac{\lambda_1^{(i)}}{\lambda^{(i)}}\left[1-\exp\left(\lambda^{(i)}a_i-\lambda^{(i)}a_{i+1}\right)\right]\exp\left[I(i\neq1)\sum_{k=1}^{i-1}\left(\lambda^{(i)}a_k-\lambda^{(i)}a_{k+1}\right)\right]\right\}$$
+            <br>
+            <br><br>
+            <br><br>
+        </p>
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="references-section">参考文献</p>
+        <p style="margin-left: 50px;margin-right: 80px;font-family: Times New Roman, Times, serif;font-size: 20px;">
+            <br>1.Gail M H, Brinton L A, Byar D P, et al. Projecting individualized probabilities of developing breast cancer for white females who are being examined annually[J]. JNCI: Journal of the National Cancer Institute, 1989, 81(24): 1879-1886.<br>
+            <br>2.Gail M H, Costantino J P, Bryant J, et al. Weighing the risks and benefits of tamoxifen treatment for preventing breast cancer[J]. Journal of the National Cancer Institute, 1999, 91(21): 1829-1846.<br>
+            <br>3.Cao Y, Chen L, Yang Y, et al. Semiparametric Maximum Likelihood Estimation with Two-phase Stratified Case-control Sampling[J]. Statistica Sinica, 2023, 33: 2233-2256.<br>
+            <br>4.Chen J, Pee D, Ayyagari R, et al. Projecting absolute invasive breast cancer risk in white women with a model that includes mammographic density[J]. Journal of the National Cancer Institute, 2006, 98(17): 1215-1226.<br>
+            <br>5.Chen J, Ayyagari R, Chatterjee N, et al. Breast cancer relative hazard estimates from case–control and cohort designs with missing data on mammographic density[J]. Journal of the American Statistical Association, 2008, 103(483): 976-988.<br>
+        </p><br><br><br><br>
+
+        
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function showInterface1() {
+            document.getElementById('interface1').style.display = 'block';
+            document.getElementById('interface2').style.display = 'none';
+        }
+     
+        function showInterface2() {
+            document.getElementById('interface1').style.display = 'none';
+            document.getElementById('interface2').style.display = 'block';
+        }
+    </script>
+
+
+    
+    <button class="button_back-to-top" id="back-to-top-btn"   >
+        <svg class="svgIcon" viewBox="0 0 384 512">
+            <path
+            d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+            ></path>
+        </svg>
+    </button>
+
+    <script src="js/backtotop.js"></script>
+</body>
+</html>
+

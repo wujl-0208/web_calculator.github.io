@@ -1,0 +1,25 @@
+  /* 自定义无序列表的样式 */
+  ul.custom-bullets {
+    list-style-type: none; /* 移除默认的项目符号 */
+    padding-left: 0; /* 移除默认的左边距 */
+  }
+
+  /* 自定义列表项的样式 */
+  ul.custom-bullets li {
+    position: relative; /* 为绝对定位的子元素设置参考点 */
+    padding-left: 25px; /* 为圆形项目符号留出空间 */
+    margin-bottom: 10px; /* 每个列表项之间的间距 */
+  }
+
+  /* 自定义圆形项目符号的样式 */
+  ul.custom-bullets li::before {
+    content: ""; /* 不显示任何内容，只显示背景 */
+    position: absolute; /* 绝对定位 */
+    left: 0; /* 相对于列表项的左边对齐 */
+    top: 50%; /* 相对于列表项的高度的一半对齐，需要调整transform来居中 */
+    transform: translateY(-50%); /* 垂直居中 */
+    width: 12px; /* 圆形的直径 */
+    height: 12px; /* 同上 */
+    background-color: black; /* 圆形的颜色 */
+    border-radius: 50%; /* 使方形变成圆形 */
+  }

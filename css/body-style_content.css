@@ -1,0 +1,205 @@
+
+html, body {
+    margin: 0; /* 确保没有默认的外边距 */
+    padding: 0; /* 确保没有内边距 */
+    height: 100%; /* 使元素占据整个视口的高度 */
+}
+
+body {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAQElEQVQIW2P89OvDfwYo+PHjJ4zJwMHBzsAIk0SXAKkCS2KTAEu++vQSbizIKGQAl0SXAJkGlsQmAbcT2Shk+wH0sCzAEOZW1AAAAABJRU5ErkJggg==) no-repeat center center fixed; /* 背景图像，居中，固定位置 */
+    background-size: cover; /* 如果需要，使背景图像覆盖整个视口 */
+}
+
+.container_result {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 40%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 30vh;
+    flex-direction: column;
+    max-width: 100%;
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.container_age {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    flex-direction: column;
+    max-width: 25%;
+    /* max-height: 50vh; */
+    margin-bottom: 30px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_Ageflb {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    flex-direction: column;
+    max-width: 22%;
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_Agemen {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    flex-direction: column;
+    max-width: 25%;
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_Nbiops {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+    flex-direction: column;
+    max-width: 28%;
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_Numrel {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    flex-direction: column;
+    max-width: 25%;
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_Weight {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+    max-width: 25%; 
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_Density {
+    margin: 0; /* 移除默认的body边距 */
+    margin-left: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    flex-direction: column;
+    max-width: 20%;
+    /* max-height: 50vh; */
+    margin-bottom: 70px;
+    margin-top: 50px;
+    /* border: 1px solid #000 */
+    background-color: rgb(236, 236, 236);
+    box-shadow:rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    z-index: 1;
+}
+
+.container_button  {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 33%;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    flex-direction: column;
+    max-width: 30%;
+    max-height: 50vh;
+    margin-bottom: 100px;
+    /* border: 1px solid #000 */
+}
+
+.container_chart {
+    margin: 0;
+    padding: 0;
+    display: none;
+    margin-left: 20%;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: row;
+    max-width: 60%;
+    max-height: 50vh;
+    border: 0px solid #000;
+    position: relative;
+    z-index: 1;
+    margin-top: 200px;
+    margin-bottom: 10px;
+    background-color: #D5E0CC;
+
+}
+
+.prefix-circle {
+    display: inline-block;
+    width: 15px; /* 圆形的直径可以稍大一些 */
+    height: 15px; /* 同上 */
+    background-color: red; /* 圆形的颜色 */
+    border-radius: 50%; /* 使方形变成圆形 */
+    margin-right: 8px; /* 圆形和文字之间的间距 */
+}

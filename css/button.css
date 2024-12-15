@@ -1,0 +1,49 @@
+/* From Uiverse.io by vikiWayne */ 
+.button1 {
+  padding: 0.3em 0.7em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #2c9caf;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #2c9caf;
+}
+
+.button1:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+  outline: 2px solid #70bdca;
+  box-shadow: 4px 5px 17px -4px #b6d4be;
+}
+
+.button1::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #2caf7f7c;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.button1:hover::before {
+  width: 250%;
+}
+
+.flex.items-center.gap-2 {
+  display: flex; /* 使用Flexbox布局 */
+  width: 100%; /* 设置宽度为100% */
+  margin: 0; /* 移除外边距 */
+  padding: 10px; /* 设置内边距 */
+  background-color: #2addbf; /* 设置背景颜色 */
+  box-sizing: border-box; /* 确保内边距和边框不会增加元素的宽度 */
+}
