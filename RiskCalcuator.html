@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.6, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=0.6, maximum-scale=1.0, user-scalable=no">
     <script src="js/函数.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -30,7 +30,7 @@
              margin-top: 30px;
          }
         .chart-container canvas {
-             width: 100%;
+             width: 400px;
              height: auto;
          }
         #interface2 {
@@ -118,7 +118,7 @@
         </section>
         <form  onsubmit="calculate(); return false;">
             <div class="container_age">
-                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 2.5vh;"  >
+                <label style="font-family:'楷体', '楷体_GB2312', 'SimKai' ;font-size: 22px;"  >
                     1. 您的年龄为（岁）:
                 <input type="number" name="Startage" id="Startage" class="input" min="35" max="85" placeholder="only(35-85)" style="font-size: 1.8vh;"></label>
             </div>
@@ -312,7 +312,7 @@
 
             <div class="container_chart" id="fig1">
                 <p id="title_1_element" style="position: absolute; top: 0; left: 50%;
-                 transform: translateX(-50%); font-size: 40px; color: #0e0e98; font-weight: bold;"></p>
+                 transform: translateX(-50%); font-size: 2.3vw; color: #0e0e98; font-weight: bold;"></p>
                 <div class="chart-container">
                     <canvas id="pieChart1"></canvas>
                 </div>
@@ -330,7 +330,7 @@
 
             <div class="container_chart" id="fig2">         
                 <p id="title_2_element" style="position: absolute; top: 0; left: 50%;
-                 transform: translateX(-50%); font-size: 40px; color: #0e0e98; font-weight: bold;"></p>    
+                 transform: translateX(-50%); font-size: 2.3vw; color: #0e0e98; font-weight: bold;"></p>    
                 <div class="chart-container">
                     <canvas id="pieChart2"></canvas>
                 </div>
@@ -414,7 +414,7 @@
             最终结果包含六个变量，我们将每个变量划分为不同区间，将所有变量都视为分类变量并用对应的数字指代相应区间。
             <br>
         </p>
-        <table class="layout display responsive-table" style="margin-left: 50px;margin-right: 50px;">
+        <table class="layout display responsive-table" style="margin-left: 50px;margin-right: 50px;table-layout: fixed;">
             <thead>
                 <tr>
                     <th></th>

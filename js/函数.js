@@ -256,10 +256,10 @@ function updatePieCharts(data1, data2,data3,data4) {
     const text_1 = document.createElement('p');
     text_1.innerText = (data1.data[0] * 100).toFixed(1) + '%';
     text_1.style.position = 'absolute';
-    text_1.style.top = '70px'; // 调整文本的位置，确保在标题下方
+    text_1.style.top = '7vh'; // 调整文本的位置，确保在标题下方
     text_1.style.left = '21%';
     // text_1.style.transform = 'translateX(-50%)'; // 这里可能不需要，因为left已经设置了具体的百分比位置
-    text_1.style.fontSize = '35px';
+    text_1.style.fontSize = '3.5vh';
     text_1.style.color = '#00008B';
     text_1.style.fontWeight = 'bold';
     document.getElementById('fig1').appendChild(text_1);
@@ -268,9 +268,9 @@ function updatePieCharts(data1, data2,data3,data4) {
     const text_2 = document.createElement('p');
     text_2.innerText = (data3.data[0] * 100).toFixed(1) + '%';
     text_2.style.position = 'absolute';
-    text_2.style.top = '70px'; // 与text_1相同的top值，因为它们应该在同一水平线上
+    text_2.style.top = '7vh'; // 与text_1相同的top值，因为它们应该在同一水平线上
     text_2.style.left = '50%'; 
-    text_2.style.fontSize = '35px';
+    text_2.style.fontSize = '3.5vh';
     text_2.style.color = '#00008B';
     text_2.style.fontWeight = 'bold';
     document.getElementById('fig1').appendChild(text_2);
@@ -353,9 +353,9 @@ function updatePieCharts(data1, data2,data3,data4) {
     const text_3 = document.createElement('p'); 
     text_3.innerText = (data2.data[0] * 100).toFixed(1) + '%';
     text_3.style.position = 'absolute';
-    text_3.style.top = '70px'; // 调整文本的位置
+    text_3.style.top = '7vh'; // 调整文本的位置
     text_3.style.left = '21%';
-    text_3.style.fontSize = '35px'; // 增大字体
+    text_3.style.fontSize = '3.5vh'; // 增大字体
     text_3.style.color = '#00008B';
     text_3.style.fontWeight = 'bold';
     document.getElementById('fig2').appendChild(text_3);
@@ -363,9 +363,9 @@ function updatePieCharts(data1, data2,data3,data4) {
     const text_4 = document.createElement('p');
     text_4.innerText = (data4.data[0] * 100).toFixed(1) + '%';
     text_4.style.position = 'absolute';
-    text_4.style.top = '70px'; // 调整文本的位置
+    text_4.style.top = '7vh'; // 调整文本的位置
     text_4.style.left = '50%';
-    text_4.style.fontSize = '35px'; // 增大字体
+    text_4.style.fontSize = '3.5vh'; // 增大字体
     text_4.style.color = '#00008B';
     text_4.style.fontWeight = 'bold';
     document.getElementById('fig2').appendChild(text_4);

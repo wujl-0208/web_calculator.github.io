@@ -35,7 +35,7 @@ body {
     align-items: center;
     height: 70px;
     flex-direction: column;
-    max-width: 25%;
+    max-width: 450px;
     /* max-height: 50vh; */
     margin-bottom: 30px;
     margin-top: 50px;
@@ -54,7 +54,7 @@ body {
     align-items: center;
     height: 30vh;
     flex-direction: column;
-    max-width: 22%;
+    max-width: 410px;
     /* max-height: 50vh; */
     margin-bottom: 70px;
     margin-top: 50px;
@@ -73,7 +73,7 @@ body {
     align-items: center;
     height: 30vh;
     flex-direction: column;
-    max-width: 25%;
+    max-width: 410px;
     /* max-height: 50vh; */
     margin-bottom: 70px;
     margin-top: 50px;
@@ -92,7 +92,7 @@ body {
     align-items: center;
     height: 35vh;
     flex-direction: column;
-    max-width: 28%;
+    max-width: 450px;
     /* max-height: 50vh; */
     margin-bottom: 70px;
     margin-top: 50px;
@@ -111,7 +111,7 @@ body {
     align-items: center;
     height: 30vh;
     flex-direction: column;
-    max-width: 25%;
+    max-width: 425px;
     /* max-height: 50vh; */
     margin-bottom: 70px;
     margin-top: 50px;
@@ -130,7 +130,7 @@ body {
     align-items: center;
     height: 50vh;
     flex-direction: column;
-    max-width: 25%; 
+    max-width: 420px; 
     /* max-height: 50vh; */
     margin-bottom: 70px;
     margin-top: 50px;
@@ -149,7 +149,7 @@ body {
     align-items: center;
     height: 40vh;
     flex-direction: column;
-    max-width: 20%;
+    max-width: 400px;
     /* max-height: 50vh; */
     margin-bottom: 70px;
     margin-top: 50px;
@@ -184,7 +184,7 @@ body {
     align-items: center;
     height: 80vh;
     flex-direction: row;
-    max-width: 60%;
+    max-width: 1000px;
     max-height: 50vh;
     border: 0px solid #000;
     position: relative;
@@ -202,4 +202,9 @@ body {
     background-color: red; /* 圆形的颜色 */
     border-radius: 50%; /* 使方形变成圆形 */
     margin-right: 8px; /* 圆形和文字之间的间距 */
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto; /* 居中 */
 }
