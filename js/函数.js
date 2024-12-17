@@ -245,7 +245,7 @@ function updatePieCharts(data1, data2,data3,data4) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false, maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'top'
@@ -298,7 +298,8 @@ function updatePieCharts(data1, data2,data3,data4) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'top'
@@ -321,7 +322,8 @@ function updatePieCharts(data1, data2,data3,data4) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'top'
@@ -340,7 +342,8 @@ function updatePieCharts(data1, data2,data3,data4) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'top'

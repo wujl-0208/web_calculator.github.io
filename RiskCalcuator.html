@@ -30,7 +30,7 @@
              margin-top: 30px;
          }
         .chart-container canvas {
-             width: 400px;
+             width: 300px;
              height: auto;
          }
         #interface2 {
@@ -313,10 +313,10 @@
             <div class="container_chart" id="fig1">
                 <p id="title_1_element" style="position: absolute; top: 0; left: 50%;
                  transform: translateX(-50%); font-size: 2.3vw; color: #0e0e98; font-weight: bold;"></p>
-                <div class="chart-container">
+                <div class="chart-container" id="pie-1">
                     <canvas id="pieChart1"></canvas>
                 </div>
-                <div class="chart-container">
+                <div class="chart-container" id="pie-2">
                     <canvas id="pieChart3"></canvas>                    
                 </div>
                 <p id="text_1_placeholder" style="display: none;"></p> <!-- 占位符，实际元素会通过JavaScript添加 -->
@@ -331,10 +331,11 @@
             <div class="container_chart" id="fig2">         
                 <p id="title_2_element" style="position: absolute; top: 0; left: 50%;
                  transform: translateX(-50%); font-size: 2.3vw; color: #0e0e98; font-weight: bold;"></p>    
-                <div class="chart-container">
+                <div class="chart-container" id="pie-3">
+                    
                     <canvas id="pieChart2"></canvas>
                 </div>
-                <div class="chart-container">
+                <div class="chart-container" id="pie-4">
                     <canvas id="pieChart4"></canvas>
 
                 </div>
