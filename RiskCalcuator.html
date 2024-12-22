@@ -360,61 +360,69 @@
 
     <div id="interface2">
         <h2 style="margin-left: 50px;margin-right: 80px;">关于我们新模型的绝对风险计算器介绍</h2>
-        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;">目录</p>
+        <br><br>
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;">目录</p><br><br>
         <ul class="custom-bullets" style="margin-left: 50px;margin-right: 80px;font-size: 20px;">
             <li><a href="#new-model-section"> 新模型介绍</a></li>
             <li><a href="#method-section">方法介绍</a> </li>
             <li><a href="#references-section">参考文献</a> </li>
         </ul><br><br><br>
         
-        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="new-model-section">新模型介绍</p>
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="new-model-section">新模型介绍</p><br><br>
         <p style="margin-left: 50px;margin-right: 80px;">
-            我们所使用的新的乳腺癌绝对风险评估模型是基于Gail模型和Chen等人提出的改进模型而提出的。<br>
-            我们的新模型使用了女性的部分个人信息来估计她们患乳腺癌的绝对风险，模型所使用的个人信息如下所示：</p>
+            Gail等人在1989年提出了一个估算白人妇女乳腺癌绝对风险的模型，即“Gail模型”<sup>[1-2]</sup>，
+            此后该模型根据美国国家癌症研究所\((National\ Cancer\ Institute,\ NCI)\)的SEER（Surveillance, Epidemiology, and End Results）数据库进行了校准，得出了“Gail模型2”。
+            而与乳腺癌相关的一系列研究表明乳腺X线摄影密度与患乳腺癌息息相关，乳腺X线摄影密度超过75%的女性患乳腺癌的风险是乳腺X线摄影密度小或无密度女性的四到六倍<sup>[3-6]</sup>。
+            因此Chen等人于2006年提出的新的相对风险模型就加入了乳腺X线摄影密度这一变量<sup>[8]</sup>。
+            我们所使用的新的乳腺癌绝对风险评估模型是基于Gail模型和Chen等人提出的改进模型而提出的。<br><br>
+            我们的新模型使用了女性的部分个人信息来估计她们患乳腺癌的绝对风险，模型所使用的个人信息如下所示：</p><br><br>
         <ul class="custom-bullets" style="margin-left: 50px;margin-right: 80px;">
             <li>本人年龄</li>
-            <li>第一次生育时的年龄</li>
-            <li>第一次月经来潮时的年龄</li>
-            <li>过去因乳腺问题而接受过的、并被病理诊断为良性的活组织检查次数</li>
+            <li>初产年龄（第一次生育时的年龄或未生育）</li>
+            <li>初潮年龄（第一次月经来潮时的年龄）</li>
+            <li>既往良性活检次数（过去因乳腺问题而接受过的、并被病理诊断为良性的活组织检查次数）</li>
             <li>患乳腺癌的直系女性亲属（母亲或姐妹）人数</li>
             <li>体重</li>
-            <li>乳腺X线密度</li>
+            <li>乳腺X线摄影密度</li>
         </ul>
         <p style="margin-left: 50px;margin-right: 80px;">
-        <br>我们所使用的数据来源于美国乳腺癌检测示范项目\((BCDDP)\)和美国国家癌症研究所的监视、流行病学和最终结果项目\((SEER)\)。
-        其中\(\text{BCDDP}\)项目是一项由美国国家癌症研究所\((NCI)\)和美国癌症协会\((American Cancer Society)\)共同开展的乳腺癌筛查研究，
-        涉及28万名年龄在35岁至74岁之间的白人女性。
+        <br>我们所使用的数据来源于美国乳腺癌检测示范项目\((Breast\ Cancer\ Detection\ Demonstration\ Project,BCDDP)\)和美国国家癌症研究所的\(SEER(Surveillance,\ Epidemiology,\ and\ End\ Results)\)数据库。
+        其中BCDDP项目是一项由美国国家癌症研究所\((National\ Cancer\ Institute,\ NCI)\)和美国癌症协会\((American\ Cancer\ Society)\)共同开展的乳腺癌筛查研究，
+        该研究在1973-1975年间招募了284,780名女性，其中包括243,221名白人女性，并对每个受试者进行了长达5年的年度筛查。
+        这些女性中99%以上的女性年龄都在35岁-74岁之间，中位年龄为50岁。1973-1980年的BCDDP研究被称为"筛查阶段"。为了研究乳腺癌的风险因素，1979年研究人员在筛查阶段开展了一项病例对照研究。
+        在筛查阶段结束时，他们决定对所有参加病例对照研究的妇女、所有在筛查阶段接受活组织检查的妇女、所有被建议进行活组织检查但实际上没有接受检查的妇女以及剩余的妇女进行跟踪随访调查。
+        随访至1998年12月31日，我们称1980年1月1日至1995年12月31日为随访阶段。在筛查阶段结束时研究人员进行巢式病例对照研究，将患有浸润性或原位乳腺癌的妇女视为病例，
+        对照组定义为在筛查阶段未确诊乳腺癌、未进行乳腺活检或未被建议进行乳腺活检的受试者
+        <sup>[1,8,9]</sup>。由于部分BCDDP的数据缺失，最终我们选择了具有所有变量完整信息的2833名受试者进行研究。
         </p><br><br><br>
 
-        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="method-section"> 方法介绍 </p>
+        <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="method-section"> 方法介绍 </p><br><br>
         <p style="margin-left: 50px;margin-right: 80px;">为方便后续介绍，首先我们给定一些概念：<br>    
-            <br>初产年龄：女性生育第一个孩子时的年龄<br>
-            <br>初潮年龄：女性第一次月经来潮时的年龄<br>
-            <br>既往良性活检次数：在过去因乳腺问题而接受过的、并被病理诊断为良性的活组织检查次数<br>
-            <br>患乳腺癌的绝对风险：年龄为\(a\)的健康女性在年龄\(a+\tau\)前患乳腺癌的概率<br>
-            <br>非负随机变量\(T_1,T_2\)分别表示患乳腺癌的时间和不患乳腺癌但死于其他原因的时间<br>
-            <br>未患乳腺癌且未死于其他原因的时间被定义为：\(T=\min\{T_1,T_2\}\)<br>
-            <br>t时刻的风险率定义为：\(\lambda(t)=\lim_{\varepsilon\to0^+}\frac{\Pr(T&ltt+\epsilon|T\geq t)}{\epsilon}\)<br>
-            <br>t时刻患乳腺癌的概率为：\(\lambda_1(t)=\lim_{\epsilon\to0^+}\frac{\Pr(T&ltt+\epsilon,\delta(T)=1|T\geq t)}{\epsilon}\)<br>
+            <br>患乳腺癌的绝对风险：年龄为\(a\)的健康女性在年龄\(a+\tau\)前患乳腺癌的概率，<br>
+            <br>非负随机变量\(T_1,T_2\)分别表示患乳腺癌的时间和不患乳腺癌但死于其他原因的时间，<br>
+            <br>未患乳腺癌且未死于其他原因的时间被定义为：\(T=\min\{T_1,T_2\}\)，<br>
+            <br>t时刻的风险率定义为：\(\lambda(t)=\lim_{\varepsilon\to0^+}\frac{\Pr(T&ltt+\epsilon|T\geq t)}{\epsilon}\)，<br>
+            <br>t时刻患乳腺癌的概率为：\(\lambda_1(t)=\lim_{\epsilon\to0^+}\frac{\Pr(T&ltt+\epsilon,\delta(T)=1|T\geq t)}{\epsilon}\)，<br>
             <br>t时刻因除乳腺癌外其他原因死亡的概率为：\(\lambda_2\left(t\right)=\lim_{\epsilon\to0^+}\frac{\Pr(T&ltt+\epsilon,\delta(T)=2|T\geq t)}{\epsilon}\)
-             且\(\lambda(t)=\lambda_1(t)+\lambda_2(t)\)<br>
-            <br>经过推导我们可以得出乳腺癌的绝对风险计算式为：
-            $$\Pr(a&ltT\leq a+\tau,\delta(T)=1\mid T>a)=\int_\alpha^{\alpha+\tau}\lambda_1(t)\exp\left\{-\int_\alpha^t[\lambda_1(u)+\lambda_2(u)]du\right\}dt$$
+             ，且\(\lambda(t)=\lambda_1(t)+\lambda_2(t)\)。<br>
+            <br>经过推导我们可以得出乳腺癌的绝对风险计算式<sup>[1]</sup>为：
+            $$\Pr(a&ltT\leq a+\tau,\delta(T)=1\mid T>a)=\int_\alpha^{\alpha+\tau}\lambda_1(t)\exp\left\{-\int_\alpha^t[\lambda_1(u)+\lambda_2(u)]du\right\}dt.$$
             <br>也就是说我们只需要求得\(\lambda_{1}\)和\(\lambda_{2}\)即可。其中\(\lambda_{2}\)可以通过美国国家卫生统计中心提供的除乳腺癌以外的所有病因的死亡率来估算，
-            而\(\lambda_{1}\)通常使用特因风险函数建模$$\lambda_1(t;\mathrm{x})=h_1(t)r(\mathrm{x},z)$$
-            <br>由于BCDDP的数据是缺失数据，尤其是关于我们新增的乳腺X密度这一变量更是只有约50%的相关数据，
-            因此对于相对风险的估计，我们使用了回顾性二阶段数据分析的方法对BCDDP的病例数据进行了建模分析，建立的风险模型如下：
-            $$\Pr(Y=i\mid X=x,Z^c=z,A^c=a)=\frac{\exp[i(\alpha_\alpha+\beta_X^Tx+\beta_Zz)]}{1+\exp(\alpha_\alpha+\beta_X^Tx+\beta_Zz)}$$
-            其中\(Y=1\)表示患癌症，\(Y=0\)表示不患癌症，\(X\)为传统风险因素（初产年龄、初潮年龄、既往良性活检次数、患乳腺癌的姐妹或母亲数量、体重），\(Z^{c}\)为乳腺摄影密度<br>
-            <br>由于乳腺癌的低发病率符合罕见发病率假设，即
-            \(\frac{\Pr(Y=\mathrm{l}\mid\mathrm{X},Z^{c},A)}{\Pr(Y=0\mid\mathrm{X},Z^{c},A)}\approx\Pr(Y=1\mid\mathrm{X},Z^{c},A)\)<br>
+            而\(\lambda_{1}\)通常使用特因风险函数(Cause-specific hazard function)建模：$$\lambda_1(t;\mathrm{x})=h_1(t)r(\mathrm{x},z).$$
+            <br>由于BCDDP的数据是缺失数据，尤其是关于我们新增的乳腺X线摄影密度这一变量更是只有约50%的相关数据，
+            因此对于相对风险的估计，我们使用了回顾性二阶段数据分析的方法对BCDDP的病例数据进行了建模分析，
+            我们令\(Y=1\)表示患癌症，\(Y=0\)表示不患癌症，\(X\)为传统风险因素（初产年龄、初潮年龄、既往良性活检次数、患乳腺癌的姐妹或母亲数量、体重），\(Z^{c}\)为乳腺X线摄影密度，
+            以此建立的风险模型如下：
+            $$\Pr(Y=i\mid X=x,Z^c=z,A^c=a)=\frac{\exp[i(\alpha_\alpha+\beta_X^Tx+\beta_Zz)]}{1+\exp(\alpha_\alpha+\beta_X^Tx+\beta_Zz)}.$$
+            
             <br>因此乳腺癌相对风险的估计可以写为：
             \(r(x,z)=\beta_X^Tx+\beta_Zz\)
-            在此基础上，我们利用回顾性二阶段数据的分析方法获得关联参数
-            \(\beta=(\beta_x^T,\beta_z)^T\)的极大似然估计，
+            。在此基础上，我们利用回顾性二阶段数据的分析方法<sup>[7]</sup>获得关联参数
+            \(\beta=(\beta_X^T,\beta_Z)^T\)的极大似然估计，
             最终结果包含六个变量，我们将每个变量划分为不同区间，将所有变量都视为分类变量并用对应的数字指代相应区间。
             <br>
-        </p>
+        </p><br>
+        <p style="margin-left: 650px;font-family: Arial, sans-serif;">表1  分类变量对应取值</p>
         <table class="layout display responsive-table" style="margin-left: 50px;margin-right: 50px;table-layout: fixed;">
             <thead>
                 <tr>
@@ -429,7 +437,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="organisationnumber">第一次生育时的年龄</td>
+                    <td class="organisationnumber">初产年龄（\(X_1\)）</td>
                     <td class="organisationname">20岁之前</td>
                     <td class="actions">20-24岁</td>
                     <td>25-29岁或未经产</td> <!-- Placeholder for additional data -->
@@ -438,7 +446,7 @@
                     <td>-</td>
                 </tr>
                 <tr>
-                    <td class="organisationnumber">第一次月经来潮时的年龄</td>
+                    <td class="organisationnumber">初潮年龄（\(X_2\)）</td>
                     <td class="organisationname">14岁及之后</td>
                     <td class="actions">12-13岁之间</td>
                     <td>12岁之前</td>
@@ -447,7 +455,7 @@
                     <td>-</td>
                 </tr>
                 <tr>
-                    <td class="organisationnumber">在过去因乳腺问题而接受过的、<br>并被病理诊断为良性的活组织检查次数</td>
+                    <td class="organisationnumber">既往良性活检次数（\(X_3\)）</td>
                     <td class="organisationname">0次</td>
                     <td class="actions">1次</td>
                     <td>2次及以上</td>
@@ -456,7 +464,7 @@
                     <td>-</td>
                 </tr>
                 <tr>
-                    <td class="organisationnumber">母亲或姐妹患乳腺癌的人数</td>
+                    <td class="organisationnumber">母亲或姐妹患乳腺癌的人数（\(X_4\)）</td>
                     <td class="organisationname">0人</td>
                     <td>1人</td> <!-- Missing <td> tag closed here -->
                     <td>2人及以上</td>
@@ -465,7 +473,7 @@
                     <td>-</td>
                 </tr>
                 <tr>
-                    <td class="organisationnumber">体重</td>
+                    <td class="organisationnumber">体重（\(X_5\)）</td>
                     <td class="organisationname">不超过100磅</td>
                     <td class="actions">101-125磅</td>
                     <td>126-150磅</td>
@@ -475,7 +483,7 @@
                 </tr>
                 <!-- Add two more rows with placeholder data -->
                 <tr>
-                    <td class="organisationnumber">乳腺X线密度</td> <!-- Example organisation number -->
+                    <td class="organisationnumber">乳腺X线摄影密度（\(Z^c\)）</td> <!-- Example organisation number -->
                     <td class="organisationname">0%</td>
                     <td class="actions">0%-25%</td>
                     <td>25%-50%</td>
@@ -487,38 +495,60 @@
             </tbody>
         </table>
         <p style="margin-left: 50px;margin-right: 80px;">
-            最终得到的相对风险的自然对数为：<br>
-            <br>0.145*第一次生育时的年龄+0.123*第一次月经来潮的年龄+0.240*过去因乳腺问题接受过并被病理诊断为良性的活组织检查次数+0.641*母亲或姐妹患乳腺癌的人数+0.177*体重+0.412*乳腺X线密度
+            最终得到的相对风险的自然对数<sup>[7]</sup>为：<br>
+            <br>\(0.145*X_1+0.123*X_2+0.240*X_3+0.641*X_4+0.177^*X_5+0.412*Z^c.\)
 
         </p>
         <p style="margin-left: 50px;margin-right: 80px;">    
             <br>接下来是关于\(h_1(t)\)的估计，我们利用
             \(h_1(t)=\frac{h_1^*(t)}{\sum_{\mathbf{x},\mathbf{z}}r(\mathbf{x},z)\Pr(\mathbf{X}=\mathbf{x},Z^c=z\mid A=t)}\)
-            来估计。其中\(h_1^*(t)\)可以从\(\text{SEER}\)中获取数据<br>
-            <br>由于\(\Pr(\mathrm{X},Z^c\mid A)=\Pr(Z^c\mid\mathrm{X},A)\Pr(\mathrm{X}\mid A)=\Pr(Z^c\mid\mathrm{X},A;\theta)\boldsymbol{\pi}_\mathrm{x}^i\)
-            其中\(\pi_x^i:=\Pr(X=x\mid I_t=i)\)，\(\Pr(Z^c\mid X,A;\theta)\)
-            是\(Z^c\)条件分布的参数模型。接下来我们使用具有平均参数和精度参数的β回归模型来对连续密度的条件参数模型进行拟合，最后通过半参数极大似然估计得到连续密度的分布为
-            $$p_\theta(Z=z\mid X,A)=\begin{cases}\rho+(1-\rho)F_\gamma(z_{min}\mid X,A),\mathrm{if~}z=0\\(1-\rho)f_\gamma(Z=z\mid X,A),\mathrm{otherwise}&\end{cases}$$
+            来估计。其中\(h_1^*(t)\)可以从\(\text{SEER}\)中获取数据。<br>
+            <br>设\(\mathbf{X}=(X_1,X_2,X_3,X_4,X_5)\)，我们假设\(\Pr(\mathbf{X}=\mathbf{x}|A)\)对年龄五十岁以下和五十岁以上的女性分别是一个常数。
+            我们令\(\operatorname*{Pr}(\mathbf{X}|I_{t})\)是给定年龄\(\mathbf{A}\)位于区间\(I_t\)条件下\(X_1,X_2,X_3,X_4和X_5\)的总体质量函数，
+            其中\(t&lt50\)时，\(I_t=1\)；\(t\geq50\)时，\(I_t=2\)。接下来我们使用\(\Pr(X_1,X_2,X_5|I_t)\)和\(\Pr(X_3,X_4|I_t)\)的乘积来估计\(\operatorname*{Pr}(\mathbf{X}|I_{t})\)。<br>
+            <br>为了得到给定年龄条件下所有预测因子的联合分布\(\Pr(\mathbf{X},Z^c \mid A)\)，
+            我们假定在 \(A= t,\boldsymbol{X}= x\) 时，\(Z^c\)在 BCDDP 人口中的条件分布与在一般人口中的条件分布相同，可通过以下公式计算得出
+            $$ \Pr(\mathbf{X},Z^c \mid A) = \Pr(Z^c \mid \mathbf{X}, A) \Pr(\mathbf{X} \mid A) = \Pr(Z^c \mid \mathbf{X}, A; 
+            \boldsymbol{\theta}) \boldsymbol{\pi}_\mathbf{x}^i,$$
+            其中\(\boldsymbol{\pi}_\mathrm{x}^i:=\Pr(\boldsymbol{X}=x\mid I_t=i)\)，\(\Pr(Z^c\mid X,A;\boldsymbol{\theta})\)
+            是\(Z^c\)条件分布的参数模型。<br><br>
+            在我们选取的数据集中，有306例女性的乳腺X线摄影密度为0，这些零密度可能是仪器测量时可观察到的最小乳腺X线摄影密度造成的。因此我们所获得的零密度可能是真实的零密度，
+            也可能是小于可观测阈值的低密度。我们用\(Z_{min}\)来表示可观测到的最小密度。\(Z_{min}\)可通过BCDDP受试者的最小乳腺X线摄影密度的最小值（≈0.005）来估计，
+            并假定密度\(Z\)服从伯努利分布（描述非零密度相比零密度的概率）和另一种连续分布（描述非零密度每种可能值的概率）的混合分布。
+            那么，零密度的概率就包括伯努利分布中真正零\(\rho\)的概率，以及大于零且不大于最小可观测密度\((1-\rho)F_{\boldsymbol{\gamma}}(z_{min})\)的概率。<br>  <br>
+            接下来我们使用具有平均参数和精度参数的\(\beta\)回归模型<sup>[10,11]</sup>来对连续密度的条件参数模型进行拟合，\(f_{\gamma},F_{\gamma}\)分别表示\(\beta\)回归的密度函数和分布函数，\(p_{\theta}\)表示连续密度\(\text{Z}\)的概率密度函数。
+            最后我们通过半参数极大似然估计得到连续密度的分布为：
+            $$p_{\boldsymbol{\theta}}(Z=z|\boldsymbol{X},A)=\begin{cases}\rho+(1-\rho)F_{\boldsymbol{\gamma}}(z_{\min}|\boldsymbol{X},A),z=0\\(1-\rho)f_{\boldsymbol{\gamma}}(z|\boldsymbol{X},A),\quad z>0&\end{cases},$$            <br>
+            <br>由于我们需要的是分类变量，因此需要对分布进行一定的转化。由于分类变量\(Z^c\)取值0，1，2，3，4分别对应连续变量\(\text{Z}\)的区间
+            0，(0,0.25)，[0.25,0.5)，[0.5,0.75)，[0.75,1]，因此最后得到密度的条件分布为：
+            $$\begin{aligned}&\mathrm{Pr}(Z^{c}=0\mid\mathrm{X},A;\boldsymbol{\theta})=\rho+(1-\rho)F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\\&
+            \mathrm{Pr}(Z^{c}=1\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)-F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\right]\\&
+            \mathrm{Pr}(Z^{c}=2\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\gamma}\left(\frac{1}{2}\mid\mathrm{X},A\right)-F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)\right]\\&
+            \Pr(Z^c=3\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)-F_\gamma\left(\frac{1}{2}\mid\mathrm{X},A\right)\right]\\&\
+            Pr(Z^c=4\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho){\left[1-F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)\right]}\end{aligned},$$
             <br>
-            <br>由于我们需要的是分类变量，因此需要对分布进行一定的转化，最后得到密度的条件分布为
-            $$\begin{aligned}&\mathrm{Pr}(Z^{c}=0\mid\mathrm{X},A;\theta)=\rho+(1-\rho)F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\\&\mathrm{Pr}(Z^{c}=1\mid\mathrm{X},A;\theta)=(1-\rho)\left[F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)-F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\right]\\&\mathrm{Pr}(Z^{c}=2\mid\mathrm{X},A;\theta)=(1-\rho)\left[F_{\gamma}\left(\frac{1}{2}\mid\mathrm{X},A\right)-F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)\right]\\&\Pr(Z^c=3\mid\mathrm{X},A;\theta)=(1-\rho)\left[F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)-F_\gamma\left(\frac{1}{2}\mid\mathrm{X},A\right)\right]\\&\Pr(Z^c=4\mid\mathrm{X},A;\theta)=(1-\rho){\left[1-F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)\right]}\end{aligned}$$
-            <br>
-            <br>由此可以计算出\(h_1(t)\)，从而进一步计算绝对风险。<br>
+            <br>由此我们可以计算出\(h_1(t)\)，从而进一步计算绝对风险。<br>
             <br>由于我们之前的数据都是针对不同年龄组收集的且年龄t是离散的，因此\(\lambda(t)\)在几个年龄区间上是恒定常数。
             因此最终我们得到的绝对风险计算式为：
-            $$\Pr(a&ltT\leq a+\tau,\delta(T)=1|T>a)=\sum_{i=1}^n\left\{\frac{\lambda_1^{(i)}}{\lambda^{(i)}}\left[1-\exp\left(\lambda^{(i)}a_i-\lambda^{(i)}a_{i+1}\right)\right]\exp\left[I(i\neq1)\sum_{k=1}^{i-1}\left(\lambda^{(i)}a_k-\lambda^{(i)}a_{k+1}\right)\right]\right\}$$
+            $$\Pr(a&ltT\leq a+\tau,\delta(T)=1|T>a)=\sum_{i=1}^n\left\{\frac{\lambda_1^{(i)}}{\lambda^{(i)}}\left[1-\exp\left(\lambda^{(i)}a_i-\lambda^{(i)}a_{i+1}\right)\right]\exp\left[I(i\neq1)\sum_{k=1}^{i-1}\left(\lambda^{(i)}a_k-\lambda^{(i)}a_{k+1}\right)\right]\right\}.$$
             <br>
             <br><br>
             <br><br>
         </p>
         <p style="margin-left: 50px;font-size: 25px;margin-right: 80px;" id="references-section">参考文献</p>
         <p style="margin-left: 50px;margin-right: 80px;font-family: Times New Roman, Times, serif;font-size: 20px;">
-            <br>1.Gail M H, Brinton L A, Byar D P, et al. Projecting individualized probabilities of developing breast cancer for white females who are being examined annually[J]. JNCI: Journal of the National Cancer Institute, 1989, 81(24): 1879-1886.<br>
-            <br>2.Gail M H, Costantino J P, Bryant J, et al. Weighing the risks and benefits of tamoxifen treatment for preventing breast cancer[J]. Journal of the National Cancer Institute, 1999, 91(21): 1829-1846.<br>
-            <br>3.Cao Y, Chen L, Yang Y, et al. Semiparametric Maximum Likelihood Estimation with Two-phase Stratified Case-control Sampling[J]. Statistica Sinica, 2023, 33: 2233-2256.<br>
-            <br>4.Chen J, Pee D, Ayyagari R, et al. Projecting absolute invasive breast cancer risk in white women with a model that includes mammographic density[J]. Journal of the National Cancer Institute, 2006, 98(17): 1215-1226.<br>
-            <br>5.Chen J, Ayyagari R, Chatterjee N, et al. Breast cancer relative hazard estimates from case–control and cohort designs with missing data on mammographic density[J]. Journal of the American Statistical Association, 2008, 103(483): 976-988.<br>
-        </p><br><br><br><br>
+            <br>[1]Gail M H, Brinton L A, Byar D P, et al. Projecting individualized probabilities of developing breast cancer for white females who are being examined annually[J]. JNCI: Journal of the National Cancer Institute, 1989, 81(24): 1879-1886.<br>
+            <br>[2]Gail M H, Costantino J P, Bryant J, et al. Weighing the risks and benefits of tamoxifen treatment for preventing breast cancer[J]. Journal of the National Cancer Institute, 1999, 91(21): 1829-1846.<br>
+            <br>[3]Ursin G, Ma H, Wu A H, et al. Mammographic density and breast cancer in three ethnic groups[J]. Cancer Epidemiology Biomarkers & Prevention, 2003, 12(4): 332-338.<br>
+            <br>[4]Byrne C, Schairer C, Wolfe J, et al. Mammographic features and breast cancer risk: effects with time, age, and menopause status[J]. JNCI: Journal of the National Cancer Institute, 1995, 87(21): 1622-1629.<br>
+            <br>[5]Boyd N F, Byng J W, Jong R A, et al. Quantitative classification of mammographic densities and breast cancer risk: results from the Canadian National Breast Screening Study[J]. JNCI: Journal of the National Cancer Institute, 1995, 87(9): 670-675.<br>
+            <br>[6]Boyd N F, Rommens J M, Vogt K, et al. Mammographic breast density as an intermediate phenotype for breast cancer[J]. The lancet oncology, 2005, 6(10): 798-808.<br>
+            <br>[7]Cao Y, Chen L, Yang Y, et al. Semiparametric Maximum Likelihood Estimation with Two-phase Stratified Case-control Sampling[J]. Statistica Sinica, 2023, 33: 2233-2256.<br>
+            <br>[8]Chen J, Pee D, Ayyagari R, et al. Projecting absolute invasive breast cancer risk in white women with a model that includes mammographic density[J]. Journal of the National Cancer Institute, 2006, 98(17): 1215-1226.<br>
+            <br>[9]Chen J, Ayyagari R, Chatterjee N, et al. Breast cancer relative hazard estimates from case–control and cohort designs with missing data on mammographic density[J]. Journal of the American Statistical Association, 2008, 103(483): 976-988.<br>
+            <br>[10]Cribari-Neto F, Zeileis A. Beta regression in R[J]. Journal of statistical software, 2010, 34: 1-24.<br>
+            <br>[11]Cepeda-Cuervo E. Beta regression models: Joint mean and variance modeling[J]. Journal of Statistical Theory and Practice, 2015, 9: 134-145.<br>
+         </p><br><br><br><br>
 
         
        
