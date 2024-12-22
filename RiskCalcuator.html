@@ -422,7 +422,7 @@
             最终结果包含六个变量，我们将每个变量划分为不同区间，将所有变量都视为分类变量并用对应的数字指代相应区间。
             <br>
         </p><br>
-        <p style="margin-left: 650px;font-family: Arial, sans-serif;">表1  分类变量对应取值</p>
+        <p style="margin-left: 40%;font-family: Arial, sans-serif;">表1  分类变量对应取值</p>
         <table class="layout display responsive-table" style="margin-left: 50px;margin-right: 50px;table-layout: fixed;">
             <thead>
                 <tr>
@@ -521,11 +521,11 @@
             $$p_{\boldsymbol{\theta}}(Z=z|\boldsymbol{X},A)=\begin{cases}\rho+(1-\rho)F_{\boldsymbol{\gamma}}(z_{\min}|\boldsymbol{X},A),z=0\\(1-\rho)f_{\boldsymbol{\gamma}}(z|\boldsymbol{X},A),\quad z>0&\end{cases},$$            <br>
             <br>由于我们需要的是分类变量，因此需要对分布进行一定的转化。由于分类变量\(Z^c\)取值0，1，2，3，4分别对应连续变量\(\text{Z}\)的区间
             0，(0,0.25)，[0.25,0.5)，[0.5,0.75)，[0.75,1]，因此最后得到密度的条件分布为：
-            $$\begin{aligned}&\mathrm{Pr}(Z^{c}=0\mid\mathrm{X},A;\boldsymbol{\theta})=\rho+(1-\rho)F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\\&
-            \mathrm{Pr}(Z^{c}=1\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)-F_{\gamma}\left(z_{min}\mid\mathrm{X},A\right)\right]\\&
-            \mathrm{Pr}(Z^{c}=2\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\gamma}\left(\frac{1}{2}\mid\mathrm{X},A\right)-F_{\gamma}\left(\frac{1}{4}\mid\mathrm{X},A\right)\right]\\&
-            \Pr(Z^c=3\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)-F_\gamma\left(\frac{1}{2}\mid\mathrm{X},A\right)\right]\\&\
-            Pr(Z^c=4\mid\mathrm{X},A;\boldsymbol{\theta})=(1-\rho){\left[1-F_\gamma\left(\frac{3}{4}\mid\mathrm{X},A\right)\right]}\end{aligned},$$
+            $$\begin{aligned}&\mathrm{Pr}(Z^{c}=0|\mathbf{X},A;\boldsymbol{\theta})=\rho+(1-\rho)F_{\boldsymbol{\gamma}}(z_{min}|\mathbf{X},A)\\&
+            \operatorname*{Pr}(Z^{c}=1|\mathbf{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\boldsymbol{\gamma}}\left(\frac{1}{4}|\mathbf{X},A\right)-F_{\boldsymbol{\gamma}}(z_{min}|\mathbf{X},A)\right]\\&
+            \operatorname*{Pr}(Z^{c}=2|\mathbf{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\boldsymbol{\gamma}}\left(\frac{1}{2}|\mathbf{X},A\right)-F_{\boldsymbol{\gamma}}\left(\frac{1}{4}|\mathbf{X},A\right)\right]\\&
+            \operatorname*{Pr}(Z^{c}=3|\mathbf{X},A;\boldsymbol{\theta})=(1-\rho)\left[F_{\boldsymbol{\gamma}}\left(\frac{3}{4}|\mathbf{X},A\right)-F_{\boldsymbol{\gamma}}\left(\frac{1}{2}|\mathbf{X},A\right)\right]\\&
+            \operatorname*{Pr}(Z^{c}=4|\mathbf{X},A;\boldsymbol{\theta})=(1-\rho)\left[1-F_{\boldsymbol{\gamma}}\left(\frac{3}{4}|\mathbf{X},A\right)\right]\end{aligned},$$
             <br>
             <br>由此我们可以计算出\(h_1(t)\)，从而进一步计算绝对风险。<br>
             <br>由于我们之前的数据都是针对不同年龄组收集的且年龄t是离散的，因此\(\lambda(t)\)在几个年龄区间上是恒定常数。
